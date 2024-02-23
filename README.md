@@ -21,6 +21,45 @@ STEP 5: Remove outliers using IQR
 STEP 6: Use zscore of to remove outliers
 
 # Coding and Output
-            <<include your coding and its corressponding output screen shots here>>
+```
+import pandas as pd
+df=pd.read_csv('/content/SAMPLEIDS.csv')
+print(df)
+df.head(10)
+df.info()
+data.isnull().sum()
+data = pd.get_dummies(data)
+columns_with_null = data.columns[data.isnull().any()]
+
+### VISUALIZATION:
+import seaborn as sns
+plt.figure(figsize=(10,10))
+sns.barplot(columns_with_null)
+plt.title("NULL VALUES")
+plt.show()
+
+### NULL IMPUTATION
+for column in columns_with_null:
+    median = data[column].median()  
+    data[column].fillna(median, inplace=True)
+data.isnull().sum().sum()
+
+
+```
+![image](https://github.com/Vanitha-SM/exno1-datascience/assets/119557985/c9151899-86da-4aaf-8c49-2f999ed9d71d)
+
+![image](https://github.com/Vanitha-SM/exno1-datascience/assets/119557985/f0d351fb-4ba1-4147-89c6-2ace56643ad9)
+
+![image](https://github.com/Vanitha-SM/exno1-datascience/assets/119557985/4dc389a1-0966-4e26-bec8-3f2c8521cbf0)
+
+
+![image](https://github.com/Vanitha-SM/exno1-datascience/assets/119557985/a33bd6bf-79b1-42e0-bf18-613f96c8b592)
+
+![image](https://github.com/Vanitha-SM/exno1-datascience/assets/119557985/d88f4a69-2ce3-4604-abfb-f4163593f97b)
+
+![image](https://github.com/Vanitha-SM/exno1-datascience/assets/119557985/46a386aa-5991-4236-bd7c-3235c42a7716)
+
+
 # Result
-          <<include your Result here>>
+Thus the given data is read,cleansed and the cleaned data is saved into the file.
+
